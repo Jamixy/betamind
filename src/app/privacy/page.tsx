@@ -68,7 +68,7 @@ export default function PrivacyPage() {
       <h2>4. Sharing your information</h2>
       <p>We do not sell or rent your personal information. We share it only with:</p>
       <ul>
-        <li><strong>Service providers</strong> who help us run the website and our business, such as our hosting provider (Vercel) and our email provider, under appropriate confidentiality and data protection terms.</li>
+        <li><strong>Service providers</strong> who help us run the website and our business, such as our hosting provider (Vercel), the form delivery service that emails contact-form and newsletter submissions to our inbox (FormSubmit), and our email provider, under appropriate confidentiality and data protection terms.</li>
         <li><strong>Authorities</strong> where the law requires it.</li>
       </ul>
       <p>

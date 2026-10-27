@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Mail, MapPin, Calendar, Send, CheckCircle, ArrowRight, Clock } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { cn } from "@/lib/utils";
+import { sendForm } from "@/lib/send-form";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { WhatsAppPicker } from "@/components/ui/whatsapp-picker";
 
@@ -44,9 +45,16 @@ export function ContactClient() {
 
   const onSubmit = async (data: FormValues) => {
     if (data.honeypot) return;
-    await new Promise(r => setTimeout(r, 1000));
-    setSent(true); reset();
-    toast.success("Message sent! We'll reply within 24 hours.");
+    try {
+      await sendForm(`New website enquiry from ${data.name}`, {
+        Name: data.name, Email: data.email, Company: data.company,
+        Service: data.service, Budget: data.budget, Message: data.message,
+      }, data.email);
+      setSent(true); reset();
+      toast.success("Message sent! We'll reply within 24 hours.");
+    } catch {
+      toast.error(`Sorry, your message couldn't be sent. Please email ${siteConfig.email} or chat with us on WhatsApp.`);
+    }
   };
 
   return (

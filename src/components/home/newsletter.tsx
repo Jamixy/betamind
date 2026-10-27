@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { sendForm } from "@/lib/send-form";
 
 export function Newsletter() {
   const [email, setEmail]       = useState("");
@@ -14,10 +15,15 @@ export function Newsletter() {
     e.preventDefault();
     if (!email) return;
     setBusy(true);
-    await new Promise(r => setTimeout(r, 900));
-    setBusy(false);
-    setDone(true);
-    toast.success("You're subscribed!");
+    try {
+      await sendForm("New newsletter subscriber", { Email: email }, email);
+      setDone(true);
+      toast.success("You're subscribed!");
+    } catch {
+      toast.error("Sorry, that didn't work. Please try again in a moment.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
