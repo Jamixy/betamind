@@ -63,10 +63,10 @@ export function CookieConsent() {
               </div>
               <div>
                 <p className="text-[13.5px] font-semibold text-[var(--foreground)] mb-1">
-                  We use cookies
+                  Cookies on this site
                 </p>
                 <p className="text-[12.5px] text-[var(--muted-foreground)] leading-relaxed">
-                  We use cookies to improve your experience and analyze site traffic.
+                  We only store your cookie choice and light/dark theme on this device. No tracking or ads.
                   Read our{" "}
                   <Link href="/cookies" className="text-[#FA5A02] hover:underline">
                     Cookie Policy
