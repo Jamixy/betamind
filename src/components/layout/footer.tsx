@@ -167,12 +167,9 @@ export function Footer() {
         </div>
 
         {/* ── bottom bar ───────────────────────────────────── */}
-        <div className="py-5 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-[var(--muted-fg)] order-2 sm:order-1">
+        <div className="py-5 border-t border-[var(--border)] flex items-center justify-center sm:justify-start">
+          <p className="text-xs text-[var(--muted-fg)]">
             © {year} {siteConfig.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-[var(--muted-fg)] order-1 sm:order-2">
-            Built with Next.js &amp; Tailwind CSS
           </p>
         </div>
       </div>
